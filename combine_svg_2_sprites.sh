@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# ------------------------------------------------------------------------------
+#
+# Script Name: Combine SVG to Sprites.
+# Author: Chris Engelhard
+# Email: c.engelhard@digi4care.nl
+# Created On: Debian 11
+# Description: This script is designed to merge multiple SVG files into one and modify the SVG tags.
+# Compatible: This script is tested to be compatible with Linux, macOS, and common BSD systems.
+#
+# ------------------------------------------------------------------------------
+
+
 createTempFile() {
   TEMP_FILE=$(mktemp)
 }
@@ -19,7 +31,14 @@ mergeSVGFiles() {
 
 modifySVGFile() {
   local tempFile=$1
-  sed -i 's/<svg/<symbol/g; s/<\/svg>/<\/symbol>/g' "$tempFile"
+  # Kies de juiste sed-optie op basis van het besturingssysteem
+  if [ "$OS_TYPE" = "Linux" ]; then
+    sed -i 's/<svg/<symbol/g; s/<\/svg>/<\/symbol>/g' "$tempFile"
+  elif [ "$OS_TYPE" = "Darwin" ]; then # macOS
+    sed -i '' 's/<svg/<symbol/g; s/<\/svg>/<\/symbol>/g' "$tempFile"
+  else
+    echo "Unknown operatingsystem. sed not being executed."
+  fi
 }
 
 addHeaderAndFooter() {
@@ -32,6 +51,7 @@ addHeaderAndFooter() {
 }
 
 # Main script
+OS_TYPE=$(uname)
 BESTAND="sprites.svg"
 EXPORT=$(pwd)"/export/$BESTAND"
 MEDIA=$(pwd)"/media"
