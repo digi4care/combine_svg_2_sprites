@@ -1,2 +1,7 @@
-export/
-media/
+# Ignore all files in the export and media directories
+export/*
+media/*
+
+# Except for the .gitkeep files in these directories
+!export/.gitkeep
+!media/.gitkeep
