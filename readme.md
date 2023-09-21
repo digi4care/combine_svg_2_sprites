@@ -29,43 +29,43 @@ createTempFile() {
 
 This function deletes a file if it exists.
 
-\```bash
+```bash
 deleteFileIfExists() {
   local file=$1
   if [ -f "$file" ]; then
     rm "$file"
   fi
 }
-\```
+```
 
 ### `mergeSVGFiles(media, exclude)`
 
 This function merges SVG files found in the `media` directory except for the files specified in `exclude`.
 
-\```bash
+```bash
 mergeSVGFiles() {
   local media=$1
   local exclude=$2
   $(which find) "$media" -type f -name "*.svg" -not -name "$exclude" -print0 | xargs -0 cat >> "$TEMP_FILE"
 }
-\```
+```
 
 ### `modifySVGFile(tempFile)`
 
 This function modifies the SVG tags in the temporary file.
 
-\```bash
+```bash
 modifySVGFile() {
   local tempFile=$1
   sed -i 's/<svg/<symbol/g; s/<\/svg>/<\/symbol>/g' "$tempFile"
 }
-\```
+```
 
 ### `addHeaderAndFooter(exportFile, header, footer)`
 
 This function adds a header and footer to the export file.
 
-\```bash
+```bash
 addHeaderAndFooter() {
   local exportFile=$1
   local header=$2
@@ -74,4 +74,4 @@ addHeaderAndFooter() {
   cat "$TEMP_FILE" >> "$exportFile"
   echo "$footer" >> "$exportFile"
 }
-\```
+```
