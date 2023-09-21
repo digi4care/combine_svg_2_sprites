@@ -51,13 +51,22 @@ mergeSVGFiles() {
 ```
 
 ### `modifySVGFile(tempFile)`
+This function modifies the SVG tags in the temporary file to SYMBOL tags. It accommodates three different operating systems:
 
-This function modifies the SVG tags in the temporary file.
+1. **Linux**: Uses `sed -i` for in-place editing.
+2. **macOS (Darwin)**: Uses `sed -i ''` for in-place editing, as macOS's version of sed requires an extension to be specified.
+3. **Unknown**: If the operating system is neither Linux nor macOS, a warning message is displayed and sed is not executed.
 
 ```bash
 modifySVGFile() {
   local tempFile=$1
-  sed -i 's/<svg/<symbol/g; s/<\/svg>/<\/symbol>/g' "$tempFile"
+  if [ "$OS_TYPE" = "Linux" ]; then
+    sed -i 's/<svg/<symbol/g; s/<\/svg>/<\/symbol>/g' "$tempFile"
+  elif [ "$OS_TYPE" = "Darwin" ] then
+    sed -i '' 's/<svg/<symbol/g; s/<\/svg>/<\/symbol>/g' "$tempFile"
+  else
+    echo "Unknown operatingsystem. sed not being executed."
+  fi
 }
 ```
 
