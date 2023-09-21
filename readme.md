@@ -160,3 +160,11 @@ Look in the Export directory for the file called sprites.svg
 ```html
   <symbol id="example2-icon" data-name="example" version="1.1" viewBox="0 0 500 500"> ... </symbol>
 ```
+
+## Badges  
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)  
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://choosealicense.com/licenses/gpl-3.0/)  
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://choosealicense.com/licenses/gpl-3.0/)  
+
+## License  
+[MIT](https://choosealicense.com/licenses/mit/)  
