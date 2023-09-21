@@ -3,7 +3,7 @@
 ## Author
 
 - **Name**: Chris Engelhard
-- **Email**: c.engelhard@digi4care.nl
+- **Email**: c.engelhard@digi4care.nl 
 
 ## Compatibility
 
@@ -12,6 +12,31 @@ This script is tested to be compatible with Linux, macOS, and common BSD systems
 ## Description
 
 This Bash script is designed to merge multiple SVG files into a single SVG file while also modifying the SVG tags. It uses temporary files to assist in this process.
+
+## Importance of Using SVG Sprites
+
+### Advantages of Using SVG Sprites
+
+#### 1. Performance Optimization
+- **Fewer HTTP Requests**: Instead of making multiple HTTP requests for each individual SVG file, you can make a single request for the sprite sheet, which contains all your SVGs.
+
+#### 2. Cache Efficiency
+- **Cache Once, Use Everywhere**: Once the sprite sheet is loaded, it is cached and can be reused across different pages and components without requiring additional HTTP requests.
+
+#### 3. Simplified Management
+- **Ease of Maintenance**: It's easier to manage a single sprite sheet than to keep track of multiple individual SVG files.
+- **Version Control**: Changes to your SVGs can be made in one place, reducing the chances of outdated or inconsistent assets being used.
+
+#### 4. Advanced CSS Control
+- **Styling and Animation**: When SVGs are embedded into HTML, you can control their properties using CSS. Having them in a sprite allows you to apply styles and animations more consistently.
+
+#### 5. Scalability
+- **High-Quality Resolution**: SVGs are scalable without loss of quality, which is beneficial for responsive design.
+
+#### 6. Icon Reusability
+- **DRY (Don't Repeat Yourself)**: The same icon or shape used in multiple places can be defined once in the sprite and reused with different CSS classes or IDs.
+
+By considering these factors, you can make a more informed decision about using SVG sprites in your projects.
 
 ## Functions
 
@@ -106,31 +131,6 @@ To use these SVG sprites in your HTML, you can use the following code:
 <svg class=""><use href="sprites.svg#example1-icon" xlink:href="sprites.svg#example1-icon" aria-hidden="true"></use></svg>
 <svg class=""><use href="sprites.svg#example2-icon" xlink:href="sprites.svg#example2-icon" aria-hidden="true"></use></svg>
 ```
-
-## Importance of Using SVG Sprites
-
-### Advantages of Using SVG Sprites
-
-#### 1. Performance Optimization
-- **Fewer HTTP Requests**: Instead of making multiple HTTP requests for each individual SVG file, you can make a single request for the sprite sheet, which contains all your SVGs.
-
-#### 2. Cache Efficiency
-- **Cache Once, Use Everywhere**: Once the sprite sheet is loaded, it is cached and can be reused across different pages and components without requiring additional HTTP requests.
-
-#### 3. Simplified Management
-- **Ease of Maintenance**: It's easier to manage a single sprite sheet than to keep track of multiple individual SVG files.
-- **Version Control**: Changes to your SVGs can be made in one place, reducing the chances of outdated or inconsistent assets being used.
-
-#### 4. Advanced CSS Control
-- **Styling and Animation**: When SVGs are embedded into HTML, you can control their properties using CSS. Having them in a sprite allows you to apply styles and animations more consistently.
-
-#### 5. Scalability
-- **High-Quality Resolution**: SVGs are scalable without loss of quality, which is beneficial for responsive design.
-
-#### 6. Icon Reusability
-- **DRY (Don't Repeat Yourself)**: The same icon or shape used in multiple places can be defined once in the sprite and reused with different CSS classes or IDs.
-
-By considering these factors, you can make a more informed decision about using SVG sprites in your projects.
 
 ## Run Locally  
 Clone the project  
