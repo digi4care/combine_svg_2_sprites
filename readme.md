@@ -19,11 +19,11 @@ This Bash script is designed to merge multiple SVG files into a single SVG file 
 
 This function creates a temporary file that is used to store the merged SVG content temporarily.
 
-\```bash
+```bash
 createTempFile() {
   TEMP_FILE=$(mktemp)
 }
-\```
+```
 
 ### `deleteFileIfExists(file)`
 
